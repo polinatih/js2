@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getTemperature()">Write temperature</button>
+    <button onclick="Day()">Write a number(day)</button>
+    <button onclick="Par()">Write a number(odd or even)</button>
+    <button onclick="Purchase()">Write a sum</button>
+    <button onclick="Password()">Verify your password</button>
+    <button onclick="isPrime()">Verify prime</button>
+    <button onclick="Triangle()">Verify triangle</button>
+    <script>
+        function getTemperature() {
+            let temperature = prompt("Write temperature:");
+            if (temperature < 0) {
+                console.log("Inghet")
+            } else if (temperature >= 0 && temperature <= 10) {
+                console.log("Frig")
+            } else if (temperature >= 11 && temperature <= 25){
+                console.log ("Moderat")
+            } else if (temperature > 25) {
+                console.log("Cald")
+            }
+        }
+        function Day(){
+            let day = prompt("Write number from 1 to 7");
+            if ( day < 1 || day >7) {
+                console.log("Incorrect, try again")
+            } else if (day ==1) { console.log("Luni")}
+            else if (day==2) {console.log("Marti")}
+            else if (day==3) {console.log("Miercuri")}
+            else if (day==4) {console.log("Joi")}
+            else if (day==5) {console.log ("Vineri")}
+            else if (day==6){ console.log("Sambata")}
+            else if (day==7) {console.log("Duminica")}
+        }
+        function Par() {
+            let number = prompt("Write a number");
+            if (number%2 == 0) {
+                console.log("Number is even")
+            } else { console.log ("Number is odd")}
+        }
+        function Purchase(){
+            let purchaseAmount = prompt("Write sum of purchase:");
+            let discount;
+            if (purchaseAmount >=100) {discount = purchaseAmount *0.10}
+            let amount = purchaseAmount - discount;
+            let tax = amount * 0.05; 
+            let totalAmount = amount + tax; 
+            console.log("The final sum: ", totalAmount);
+        }
+        function Password() {
+            let password = prompt("Write your password")
+            let digit = false;
+            let upper = false;
+            let lower = false;
+            for (let i = 0; i < password.length; i++) {
+            let char = password[i];
+                if (char >= 'A' && char <= 'Z') {
+                upper = true;
+                } else if (char >= 'a' && char <= 'z') {
+                lower = true;
+            } else if (char >= '0' && char <= '9') {
+                digit = true;
+            }   
+            }
+
+            if (password.length >= 12 && upper && lower && digit) {
+        console.log("Parolă foarte sigură");
+    } else if (password.length >= 8 && upper && lower) {
+        console.log("Parolă sigură");
+    } else if (password.length >= 6 && !digit) {
+        console.log("Parolă slabă");
+    } else {
+        console.log("Parolă nesigură");
+    }
+        }
+        function isPrime() {
+    let num = parseInt(prompt("Write a number"), 10); 
+    
+    if (num <= 1) {
+        console.log("Number is not prime");
+    }
+    
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+            console.log("Number is not prime");
+        }
+        else {console.log("Number is prime")}
+    }
+    
+}
+function Triangle() {
+    let a = parseInt(prompt("1 side"), 10);
+    let b = parseInt(prompt("2 side"), 10);
+    let c = parseInt(prompt("3 side"), 10);
+    if (a + b > c && a + c > b && b + c > a) {
+        console.log("Can form a triangle");
+        if (
+            (a * a + b * b === c * c) ||
+            (a * a + c * c === b * b) ||
+            (b * b + c * c === a * a)
+        ) {
+            console.log("Triangle is rectangular");
+        } else {
+            console.log("Triangle is not rectangular.");
+        }
+    } else {
+        console.log("Can not form a triangle.");
+    }
+}
+    
+    </script>
+</body>
+</html>
